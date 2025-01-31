@@ -17,7 +17,9 @@ select distinct city from station WHERE CITY LIKE '%a' OR CITY LIKE '%i' OR CITY
 -- another way is using regex
 select city from station WHERE city REGEXP '^[aeiou].*[aeiou]$';
 
-[3]
-aaaa
+[3] Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates.
+select distinct city from station where city not in 
+(select city from station where city regexp'^[aeiou]');
 
+[4] ,
 
