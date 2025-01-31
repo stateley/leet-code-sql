@@ -11,7 +11,11 @@
 select city from station WHERE CITY LIKE 'A%' OR CITY LIKE 'I%' OR CITY LIKE 'U%' OR CITY LIKE 'E%' OR CITY LIKE 'O%';
 
 [2] Query the list of CITY names ending with vowels (a, e, i, o, u) from STATION. Your result cannot contain duplicates.
+
 select distinct city from station WHERE CITY LIKE '%a' OR CITY LIKE '%i' OR CITY LIKE '%u' OR CITY LIKE '%e' OR CITY LIKE '%o';
+
+-- another way is using regex
+select city from station WHERE city REGEXP '^[aeiou].*[aeiou]$';
 
 [3]
 aaaa
