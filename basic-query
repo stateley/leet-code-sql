@@ -35,3 +35,15 @@ select name from employee order by name asc;
 select name from employee where salary > 2000 and months < 10 order by employee_id asc;
 
 [8] 
+Query the two cities in STATION with the shortest and longest CITY names, as well as their respective lengths (i.e.: number of characters in the name). If there is more than one smallest or largest city, choose the one that comes first when ordered alphabetically.
+(SELECT city, LENGTH(city) AS length_city 
+ FROM station 
+ WHERE LENGTH(city) = (SELECT MIN(LENGTH(city)) FROM station) 
+ ORDER BY city ASC 
+ LIMIT 1)
+union all 
+(SELECT city, LENGTH(city) AS length_city 
+ FROM station 
+ WHERE LENGTH(city) = (SELECT MAX(LENGTH(city)) FROM station) 
+ ORDER BY city ASC 
+ LIMIT 1)
